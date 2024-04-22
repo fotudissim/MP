@@ -1,0 +1,181 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/QUARTUS/simulation/modelsim
+Pcampo_dat_pkg
+Z1 DPx4 ieee 9 math_real 0 22 :iME`dTX54_U49lJNF5JI3
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx4 work 17 param_disenyo_pkg 0 22 ZkLW_ST9e=8C719j6W[zY3
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+w1531387089
+Z6 d/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/QUARTUS/simulation/modelsim
+8/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/campo_DAT_pkg.vhd
+F/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/campo_DAT_pkg.vhd
+l0
+L11
+V:m5REdP>]GFVPEDTe;U[;2
+Z7 OV;C;10.1d;51
+31
+Z8 o-93 -work work -O0
+Z9 tExplicit 1
+!s100 XH71=EckM@TX6W7>7Ug:O2
+!i10b 1
+!s108 1710407905.960547
+!s90 -reportprogress|300|-93|-work|work|/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/campo_DAT_pkg.vhd|
+!s107 /dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/campo_DAT_pkg.vhd|
+Em_dat
+Z10 w1545048944
+Z11 DPx4 work 13 campo_dat_pkg 0 22 :m5REdP>]GFVPEDTe;U[;2
+Z12 DPx4 work 21 retardos_memorias_pkg 0 22 mDk7o7TV;=HfGUcR2ML?70
+Z13 DPx4 work 18 param_memorias_pkg 0 22 <Zl;XbRo1[jV;YLL9MnBP2
+R1
+R3
+R2
+R4
+R5
+R6
+Z14 8/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/CODIGO/m_DAT.vhd
+Z15 F/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/CODIGO/m_DAT.vhd
+l0
+L16
+VH^_kXN[z9ZzR6b`D^Z@I32
+R7
+31
+Z16 !s108 1710407906.073462
+Z17 !s90 -reportprogress|300|-93|-work|work|/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/CODIGO/m_DAT.vhd|
+Z18 !s107 /dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/CODIGO/m_DAT.vhd|
+R8
+R9
+!s100 [_JG`EPZ327o4G_C?6@`30
+!i10b 1
+Acompor
+R11
+R12
+R13
+R1
+R3
+R2
+R4
+R5
+DEx4 work 5 m_dat 0 22 H^_kXN[z9ZzR6b`D^Z@I32
+l26
+L22
+VlhgQKXcOlK3ZOh0m=Z5@J2
+R7
+31
+R16
+R17
+R18
+R8
+R9
+!s100 UABkNLWn7Wz]=E:j_=i5a2
+!i10b 1
+Pparam_disenyo_pkg
+R1
+R2
+R4
+R5
+w1531474769
+R6
+8/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_disenyo_pkg.vhd
+F/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_disenyo_pkg.vhd
+l0
+L11
+VZkLW_ST9e=8C719j6W[zY3
+R7
+31
+R8
+R9
+!s100 T6LLciW[]k0`=6F6gICGo3
+!i10b 1
+!s108 1710407905.728417
+!s90 -reportprogress|300|-93|-work|work|/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_disenyo_pkg.vhd|
+!s107 /dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_disenyo_pkg.vhd|
+Pparam_memorias_pkg
+R1
+R2
+R3
+R4
+R5
+w1531387194
+R6
+8/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_memorias_pkg.vhd
+F/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_memorias_pkg.vhd
+l0
+L11
+V<Zl;XbRo1[jV;YLL9MnBP2
+R7
+31
+R8
+R9
+!s100 _Bh=>T;R[kkJlNhdnHloH0
+!i10b 1
+!s108 1710407905.840101
+!s90 -reportprogress|300|-93|-work|work|/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_memorias_pkg.vhd|
+!s107 /dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/param_memorias_pkg.vhd|
+Eprueba_m_dat
+Z19 w1710407890
+R11
+R3
+Z20 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+R1
+R2
+R4
+R5
+R6
+Z21 8/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/QUARTUS/../PRUEBAS/prueba_m_DAT.vhd
+Z22 F/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/QUARTUS/../PRUEBAS/prueba_m_DAT.vhd
+l0
+L17
+V`N;:D]7J9:OETlCooT0?O0
+!s100 cEONJQjYUZ^CXL>f1SBE22
+R7
+31
+!i10b 1
+Z23 !s108 1710407906.220599
+Z24 !s90 -reportprogress|300|-93|-work|work|/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/QUARTUS/../PRUEBAS/prueba_m_DAT.vhd|
+Z25 !s107 /dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/cache_con_interface_bus/cache_con_interface_proc/cache/camino_de_datos/componentes/campo_datos/componentes/m_datos/QUARTUS/../PRUEBAS/prueba_m_DAT.vhd|
+R8
+R9
+Aprueba
+R11
+R3
+R20
+R1
+R2
+R4
+R5
+DEx4 work 12 prueba_m_dat 0 22 `N;:D]7J9:OETlCooT0?O0
+l74
+L21
+V[9jL<gYDKg[i8HCM=9a`[2
+!s100 I3gd7MU=ZlL]AKZ[JfZSd0
+R7
+31
+!i10b 1
+R23
+R24
+R25
+R8
+R9
+Pretardos_memorias_pkg
+R4
+R5
+w1532339314
+R6
+8/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/retardos_memorias_pkg.vhd
+F/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/retardos_memorias_pkg.vhd
+l0
+L9
+VmDk7o7TV;=HfGUcR2ML?70
+R7
+31
+R8
+R9
+!s100 U^z]2@>hi]bYz_IT2eOCY3
+!i10b 1
+!s108 1710407905.600726
+!s90 -reportprogress|300|-93|-work|work|/dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/retardos_memorias_pkg.vhd|
+!s107 /dades/gianfranco.saenz.berrocal/Documents/MP/lab2/LAB2/proyecto_1/tipos_constantes_pkg/retardos_memorias_pkg.vhd|
