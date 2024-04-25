@@ -29,10 +29,12 @@ architecture compor of controlador is
 signal estado, prxestado: tipoestado;
 
 signal derechos_acceso: std_logic;
-      
+
+		
 begin
 -- determinacion de los derechos de acceso al bloque
 derechos_acceso <= '1' when (s_estado.AF and s_estado.EST) = '1' else '0';
+
 
 	process (reloj, pcero)
 	begin
@@ -62,14 +64,14 @@ derechos_acceso <= '1' when (s_estado.AF and s_estado.EST) = '1' else '0';
 						prxestado <= DES;
 					end if;
 
-				when COMPETIQ	=>
-					if (es_acierto_lectura(pet)) then
+				when CMPETIQ	=>
+					if (es_acierto_lectura(pet, derechos_acceso)) then
 						prxestado <= LEC;
-					elsif (es_fallo_lectura(pet)) then
+					elsif (es_fallo_lectura(pet, derechos_acceso)) then
 						prxestado <= PML;
-					elsif (es_acierto_escritura(pet)) then
+					elsif (es_acierto_escritura(pet, derechos_acceso)) then
 						prxestado <= PMEA;
-					elsif (es_fallo_escritura(pet)) then
+					elsif (es_fallo_escritura(pet, derechos_acceso)) then
 						prxestado <= PMEF;
 					end if;
 
@@ -116,10 +118,16 @@ derechos_acceso <= '1' when (s_estado.AF and s_estado.EST) = '1' else '0';
 
 			end case;
 		end if;
+		estado <= prxestado;
 	end process;
+	
 
-	-- Toca acabar // Obviament està xungo però només cal llegir procedimientos_controlador_pkg.vhd
+	-- Toca acabar // Obviament està xungo però només cal llegir procedimientos_control_sador_pkg.vhd
 	process (estado)
+		variable s_control_s: tp_contro_cam_cntl;
+		variable estat: std_logic;
+		variable resp_s: tp_contro_s;
+		variable pet_m_s: tp_cntl_memoria_s;
 	begin
 			case estado is
 				when DES0		=>
@@ -127,39 +135,41 @@ derechos_acceso <= '1' when (s_estado.AF and s_estado.EST) = '1' else '0';
 				when INI 		=>
 					--nada
 				when ESCINI		=>
-					actualizar_dato(s_control);
-					actualizar_etiqueta(s_control);
-					actualizar_estado(s_control);
+					actualizar_dato(s_control_s);
+					actualizar_etiqueta(s_control_s);
+					actualizar_estado(s_control_s, estat);
 				when DES		=>
-					interfaces_DES(s_control);
-				when COMPETIQ	=>
-					lectura_etiq_estado(s_control);
+					interfaces_DES(resp_s);
+				when CMPETIQ	=>
+					lectura_etiq_estado(s_control_s);
 				when LEC 		=>
-					lectura_datos(s_control);
+					lectura_datos(s_control_s);
 				when HECHOL		=>
-					interfaces_HECHOL(s_control);
+					interfaces_HECHOL(resp_s);
 				when PML  		=>
-					peticion_memoria_lectura();
+					peticion_memoria_lectura(pet_m_s);
 				when ESPL		=>
 					-- espera
 				when ESB		=>
-					actualizar_dato(s_control);
-					actualizar_etiqueta(s_control);
-					actualizar_estado(s_control);
+					actualizar_dato(s_control_s);
+					actualizar_etiqueta(s_control_s);
+					actualizar_estado(s_control_s, estat);
 				when PMEA		=>
-					peticion_memoria_escritura();
+					peticion_memoria_escritura(pet_m_s);
 
 				when ESPEA		=>
 					--espera
 				when ESCP		=>
-					actualizar_dato(s_control);
+					actualizar_dato(s_control_s);
 				when PMEF		=>
-					peticion_memoria_escritura();
+					peticion_memoria_escritura(pet_m_s);
 				when ESPEF		=>
 					-- espera
 				when HECHOE		=>
 					--nada
 			end case;
+			resp <= resp_s;
+			pet_m <= pet_m_s;
 	end process;
 	
 end;
