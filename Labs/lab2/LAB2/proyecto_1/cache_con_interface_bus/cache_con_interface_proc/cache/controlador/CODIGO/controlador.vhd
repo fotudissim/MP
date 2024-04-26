@@ -36,90 +36,82 @@ begin
 derechos_acceso <= '1' when (s_estado.AF and s_estado.EST) = '1' else '0';
 
 
-	process (reloj, pcero)
-	begin
-		if pcero = '1' then
-			prxestado <= DES0;
-		elsif (rising_edge(reloj)) then
-			case estado is
-				when DES0		=>
-					if (hay_peticion_ini_procesador(pet)) then
-						prxestado <= INI;
-					elsif (hay_peticion_procesador(pet)) then
-						prxestado <= CMPETIQ;
-					else
-						prxestado <= DES0;
-					end if;
+process(pcero, reloj)
+variable v_prxestado: tipoestado;
+begin 
+	if pcero = '1' then 
+		v_prxestado := DES0;
+	elsif rising_edge(reloj) then 
+    case estado is
+        when DES0 =>
+            if hay_peticion_procesador(pet) then
+                if hay_peticion_ini_procesador(pet) then
+                    v_prxestado := INI;
+                else
+                    v_prxestado := CMPETIQ;
+                end if;
+            else
+                v_prxestado := DES0;
+            end if;
+        when INI =>
+            v_prxestado := ESCINI;
+        when ESCINI =>
+            v_prxestado := HECHOE;
+        when DES =>
+            if hay_peticion_procesador(pet) then
+                v_prxestado := CMPETIQ;
+            else
+                v_prxestado := DES;
+            end if;
+        when CMPETIQ =>
+            if es_fallo_lectura(pet, derechos_acceso) then
+                v_prxestado := PML;
+            elsif es_acierto_lectura(pet, derechos_acceso) then
+                v_prxestado := LEC;
+            elsif es_fallo_escritura(pet, derechos_acceso) then
+                v_prxestado := PMEF;
+            elsif es_acierto_escritura(pet, derechos_acceso) then
+                v_prxestado := PMEA;
+            end if;
+        when LEC =>
+            v_prxestado := HECHOL;
+        when HECHOL =>
+            v_prxestado := DES;
+        when PML =>
+            v_prxestado := ESPL;
+        when ESPL =>
+            if hay_respuesta_memoria(resp_m) then
+                v_prxestado := ESB;
+            else
+                v_prxestado := ESPL;
+            end if;
+        when ESB =>
+            v_prxestado := LEC;
+        when PMEA =>
+            v_prxestado := ESPEA;
+        when ESPEA =>
+            if hay_respuesta_memoria(resp_m) then
+                v_prxestado := ESCP;
+            else
+                v_prxestado := ESPEA;
+            end if;
+        when ESCP =>
+            v_prxestado := HECHOE;
+        when PMEF =>
+            v_prxestado := ESPEF;
+        when ESPEF =>
+            if hay_respuesta_memoria(resp_m) then
+                v_prxestado := HECHOE;
+            else
+                v_prxestado := ESPEF;
+            end if;
+        when HECHOE =>
+            v_prxestado := DES;
+    end case;
+	end if;
+    prxestado <= v_prxestado after retardo_logica_prx_estado;
+end process;
 
-				when INI 		=>
-					prxestado <= ESCINI;
-
-				when ESCINI		=>
-					prxestado <= HECHOE;
-
-				when DES		=>
-					if (hay_peticion_procesador(pet)) then
-						prxestado <= CMPETIQ;
-					else
-						prxestado <= DES;
-					end if;
-
-				when CMPETIQ	=>
-					if (es_acierto_lectura(pet, derechos_acceso)) then
-						prxestado <= LEC;
-					elsif (es_fallo_lectura(pet, derechos_acceso)) then
-						prxestado <= PML;
-					elsif (es_acierto_escritura(pet, derechos_acceso)) then
-						prxestado <= PMEA;
-					elsif (es_fallo_escritura(pet, derechos_acceso)) then
-						prxestado <= PMEF;
-					end if;
-
-				when LEC 		=>
-					prxestado <= HECHOL;
-
-				when HECHOL		=>
-					prxestado <= DES;
-
-				when PML  		=>
-					prxestado <= ESPL;
-				when ESPL		=>
-					if(hay_respuesta_memoria(resp_m)) then
-						prxestado <= ESB;
-					else
-						prxestado <= ESPL;
-					end if;
-				when ESB		=>
-					prxestado <= LEC;
-
-				when PMEA		=>
-					prxestado <= ESPEA;
-
-				when ESPEA		=>
-					if(hay_respuesta_memoria(resp_m)) then
-						prxestado <= ESCP;
-					else
-						prxestado <= ESPEA;
-					end if;
-
-				when ESCP		=>
-					prxestado <= HECHOE;
-				when PMEF		=>
-					prxestado <= ESPEF;
-
-				when ESPEF		=>
-					if(hay_respuesta_memoria(resp_m)) then
-						prxestado <= HECHOE;
-					else
-						prxestado <= ESPEF;
-					end if;
-				when HECHOE		=>
-					prxestado <= DES;
-
-			end case;
-		end if;
-	end process;
-	
 	estado <= prxestado;
 
 	-- Toca acabar // Obviament està xungo però només cal llegir procedimientos_control_sador_pkg.vhd
