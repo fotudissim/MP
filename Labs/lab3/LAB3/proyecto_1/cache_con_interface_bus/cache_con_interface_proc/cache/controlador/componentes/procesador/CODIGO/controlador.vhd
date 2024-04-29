@@ -28,7 +28,7 @@ end;
   
 architecture compor of controlador is
 
---type tipoestado is (DES0, DES, CMPETIQ, INI, ESCINI, LEC, PML, PMEA, PMEF, ESPL, ESPEA, ESPEF, ESB, ESCP, HECHOL, HECHOE);
+type tipoestado is (DES0, DES, CMPETIQ, INI, ESCINI, LEC, PML, PMEA, PMEF, ESPL, ESPEA, ESPEF, ESB, ESCP, HECHOL, HECHOE);
 signal estado, prxestado: tipoestado;
 
 signal derechos_acceso: std_logic;
@@ -40,14 +40,83 @@ derechos_acceso <= '1' when (s_estado.AF and s_estado.EST) = '1' else '0';
 -- registro de estado
 reg_estado: process (reloj, pcero)
 begin
--- 
+	if pcero = '1' then
+		estado <= DES after retardo_estado;
+	elsif rising_edge(reloj) then
+		estado <= prxestado after retardo_estado;
+	end if;
 -- asignacion de variables a las señales, indicando el retardo, retardo_estado
 end process;    
    
 -- logica de proximo estado
 prx_esta: process(estado, pet, derechos_acceso, arb_conc, resp_m, pcero)
 begin
---
+	case estado is
+		DES => 
+			if hay_peticion_ini_procesador(pet) then 
+				prxestado <= INI after retardo_logica_prx_estado;
+			elsif hay_peticion_procesador(pet) then
+				prxestado <= CMPETIQ after retardo_logica_prx_estado;
+			else
+				prxestado <= DES after retardo_logica_prx_estado;
+			end if;
+		INI => 
+			prxestado <= ESCINI after retardo_logica_prx_estado;
+		ESCINI => 
+			prxestado <= HECHOE after retardo_logica_prx_estado;
+		DES => 
+			if hay_peticion_procesador(pet) then
+				prxestado <= CMPETIQ after retardo_logica_prx_estado;
+			else
+				prxestado <= DES after retardo_logica_prx_estado;
+			end if;
+		CMPETIQ =>
+			if es_acierto_lectura(pet) then 
+				prxestado <= LEC after retardo_logica_prx_estado;
+			elsif es_fallo_lectura(pet) then 
+				prxestado <= PML after retardo_logica_prx_estado;
+			elsif es_acierto_escritura(pet) then 
+				prxestado <= PMEA after retardo_logica_prx_estado;
+			elsif es_fallo_escritura(pet) then 
+				prxestado <= PMEF after retardo_logica_prx_estado;
+			end if;
+		LEC => 
+			prxestado <= HECHOL after retardo_logica_prx_estado;
+		HECHOL => 
+			prxestado <= DES after retardo_logica_prx_estado;
+		PML => 
+			if hay_concesion(arb_conc) then 
+				prxestado <= ESPL after retardo_logica_prx_estado;
+			else 
+				prxestado <= PML after retardo_logica_prx_estado;
+			end if;
+		ESPL => 
+			if hay_respuesta_memoria(resp_m) then 
+				prxestado <= ESB after retardo_logica_prx_estado;
+			else 
+				prxestado <= ESPL after retardo_logica_prx_estado;
+			end if;
+		ESB => 
+			prxestado <= LEC after retardo_logica_prx_estado;
+		PMEA => 
+			if hay_concesion(arb_conc) then
+				prxestado <= ESPEF after retardo_logica_prx_estado;
+			else 
+				prxestado <= PMEF after retardo_logica_prx_estado;
+			end if;
+		ESPEF => 
+			if hay_respuesta_memoria(resp_m) then 
+				prxestado <= HECHOE after retardo_logica_prx_estado;
+			else 
+				prxestado <= ESPEF after retardo_logica_prx_estado;
+			end if;
+		HECHOE => 
+			prxestado <= DES after retardo_logica_prx_estado;
+	end case;
+			
+			
+
+
 -- asignacion de variables a las señales, indicando el retardo, retardo_logica_prx_estado
 end process;
    
