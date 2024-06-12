@@ -29,7 +29,7 @@ end;
   
 architecture compor of controlador is
 
---type tipoestado is (DES0, DES, CMPETIQ, INI, ESCINI, LEC, PML, PMEA, PMEF, ESPL, ESPEA, ESPEF, ESB, ESCP, HECHOL, HECHOE);
+type tipoestado is (DES0, DES, CMPETIQ, INI, ESCINI, LEC, PML, PMEA, PMEF, ESPL, ESPEA, ESPEF, ESB, ESCP, HECHOL, HECHOE);
 signal estado, prxestado: tipoestado;
 
 signal derechos_acceso: std_logic;
@@ -120,6 +120,12 @@ begin
 			end if;
 		when HECHOE => 
 			prxestado <= DES after retardo_logica_prx_estado;
+		when PMEF =>
+			prxestado <= DES after retardo_logica_prx_estado;
+		when ESPEA =>
+			prxestado <= DES after retardo_logica_prx_estado;
+		when ESCP => 
+			prxestado <= DES after retardo_logica_prx_estado;
 	end case;
 -- asignacion de variables a las señales, indicando el retardo, retardo_logica_prx_estado
 end process;
@@ -129,6 +135,7 @@ logi_sal: process(estado, pet, derechos_acceso, arb_conc, resp_m, pcero)
 	variable v_s_control: tp_contro_cam_cntl;
 	variable v_pet_m: tp_cntl_memoria_s;
 	variable v_resp: tp_contro_s;
+	variable v_arb_pet: std_logic;
 begin
 	case estado is
 		when DES0 => 
@@ -144,7 +151,7 @@ begin
 			interfaces_en_CURSO(v_resp);
 		when DES => 
 			interfaces_DES(v_resp);
-			if hay_peticion_procesador(v_resp) then 
+			if hay_peticion_procesador(pet) then 
 				lectura_etiq_estado(v_s_control);
 			end if;
 		when CMPETIQ => 
@@ -152,11 +159,11 @@ begin
 			if es_acierto_lectura(pet, derechos_acceso) then 
 				lectura_datos(v_s_control);
 			elsif es_fallo_lectura(pet, derechos_acceso) then 
-				peticion_arbitraje(arb_pet);
+				peticion_arbitraje(v_arb_pet);
 			elsif es_acierto_escritura(pet, derechos_acceso) then 
-				peticion_arbitraje(arb_pet);
+				peticion_arbitraje(v_arb_pet);
 			elsif es_fallo_escritura(pet, derechos_acceso) then 
-				peticion_arbitraje(arb_pet);
+				peticion_arbitraje(v_arb_pet);
 			end if;
 		when LEC =>
 			interfaces_en_CURSO(v_resp);
@@ -176,11 +183,11 @@ begin
 			interfaces_en_CURSO(v_resp);
 			lectura_datos(v_s_control);
 		when PMEA => 
-			interfaces_en_CURSO(v_s_control);
+			interfaces_en_CURSO(v_resp);
 			if hay_concesion(arb_conc) then 
 				peticion_memoria_lectura(v_pet_m);
 			else
-				peticion_arbitraje(arb_pet);
+				peticion_arbitraje(v_arb_pet);
 			end if; 
 		when ESPEA => 
 			interfaces_en_CURSO(v_resp);
