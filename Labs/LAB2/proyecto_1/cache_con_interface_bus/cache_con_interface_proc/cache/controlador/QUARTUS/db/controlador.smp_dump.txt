@@ -1,0 +1,19 @@
+
+State Machine - |controlador|v_prxestado
+Name v_prxestado.HECHOE v_prxestado.HECHOL v_prxestado.ESCP v_prxestado.ESB v_prxestado.ESPEF v_prxestado.ESPEA v_prxestado.ESPL v_prxestado.PMEF v_prxestado.PMEA v_prxestado.PML v_prxestado.LEC v_prxestado.ESCINI v_prxestado.INI v_prxestado.CMPETIQ v_prxestado.DES v_prxestado.DES0 
+v_prxestado.DES0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+v_prxestado.DES 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+v_prxestado.CMPETIQ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+v_prxestado.INI 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+v_prxestado.ESCINI 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+v_prxestado.LEC 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+v_prxestado.PML 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+v_prxestado.PMEA 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+v_prxestado.PMEF 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+v_prxestado.ESPL 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+v_prxestado.ESPEA 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+v_prxestado.ESPEF 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+v_prxestado.ESB 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+v_prxestado.ESCP 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+v_prxestado.HECHOL 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+v_prxestado.HECHOE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

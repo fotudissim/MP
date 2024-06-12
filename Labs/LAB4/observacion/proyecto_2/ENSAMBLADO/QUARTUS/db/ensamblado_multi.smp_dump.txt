@@ -1,0 +1,50 @@
+
+State Machine - |ensamblado_multi|cache_multi_con_interface_bus:\proc_multi:1:cache|cache_multi_con_inter_proc:cach|cache_multi:cache_sin|controlador_multi:contro|observador:contro_obser|\reg_estado:v_estado
+Name \reg_estado:v_estado.EEST \reg_estado:v_estado.CMPETO \reg_estado:v_estado.DESO 
+\reg_estado:v_estado.DESO 0 0 0 
+\reg_estado:v_estado.CMPETO 0 1 1 
+\reg_estado:v_estado.EEST 1 0 1 
+
+State Machine - |ensamblado_multi|cache_multi_con_interface_bus:\proc_multi:1:cache|cache_multi_con_inter_proc:cach|cache_multi:cache_sin|controlador_multi:contro|controlador:contro_proc|\reg_estado:v_estado
+Name \reg_estado:v_estado.HECHOE \reg_estado:v_estado.HECHOL \reg_estado:v_estado.ESCP \reg_estado:v_estado.ESB \reg_estado:v_estado.ESPEF \reg_estado:v_estado.ESPEA \reg_estado:v_estado.ESPL \reg_estado:v_estado.PMEF \reg_estado:v_estado.PMEA \reg_estado:v_estado.PML \reg_estado:v_estado.LEC \reg_estado:v_estado.ESCINI \reg_estado:v_estado.INI \reg_estado:v_estado.CMPETIQ \reg_estado:v_estado.DES \reg_estado:v_estado.DES0 
+\reg_estado:v_estado.DES0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+\reg_estado:v_estado.DES 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+\reg_estado:v_estado.CMPETIQ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+\reg_estado:v_estado.INI 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+\reg_estado:v_estado.ESCINI 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+\reg_estado:v_estado.LEC 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+\reg_estado:v_estado.PML 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+\reg_estado:v_estado.PMEA 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+\reg_estado:v_estado.PMEF 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPL 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPEA 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPEF 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESB 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESCP 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.HECHOL 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.HECHOE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |ensamblado_multi|cache_multi_con_interface_bus:\proc_multi:0:cache|cache_multi_con_inter_proc:cach|cache_multi:cache_sin|controlador_multi:contro|observador:contro_obser|\reg_estado:v_estado
+Name \reg_estado:v_estado.EEST \reg_estado:v_estado.CMPETO \reg_estado:v_estado.DESO 
+\reg_estado:v_estado.DESO 0 0 0 
+\reg_estado:v_estado.CMPETO 0 1 1 
+\reg_estado:v_estado.EEST 1 0 1 
+
+State Machine - |ensamblado_multi|cache_multi_con_interface_bus:\proc_multi:0:cache|cache_multi_con_inter_proc:cach|cache_multi:cache_sin|controlador_multi:contro|controlador:contro_proc|\reg_estado:v_estado
+Name \reg_estado:v_estado.HECHOE \reg_estado:v_estado.HECHOL \reg_estado:v_estado.ESCP \reg_estado:v_estado.ESB \reg_estado:v_estado.ESPEF \reg_estado:v_estado.ESPEA \reg_estado:v_estado.ESPL \reg_estado:v_estado.PMEF \reg_estado:v_estado.PMEA \reg_estado:v_estado.PML \reg_estado:v_estado.LEC \reg_estado:v_estado.ESCINI \reg_estado:v_estado.INI \reg_estado:v_estado.CMPETIQ \reg_estado:v_estado.DES \reg_estado:v_estado.DES0 
+\reg_estado:v_estado.DES0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+\reg_estado:v_estado.DES 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+\reg_estado:v_estado.CMPETIQ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+\reg_estado:v_estado.INI 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+\reg_estado:v_estado.ESCINI 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+\reg_estado:v_estado.LEC 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+\reg_estado:v_estado.PML 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+\reg_estado:v_estado.PMEA 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+\reg_estado:v_estado.PMEF 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPL 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPEA 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPEF 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESB 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESCP 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.HECHOL 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.HECHOE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
